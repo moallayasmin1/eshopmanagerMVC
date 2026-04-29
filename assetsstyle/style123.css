@@ -1,0 +1,330 @@
+/* ============================================
+   FASHIONLINE - Luxury Cosmetics
+   Thème : Rose & Féminin
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500;600&display=swap');
+
+:root {
+    --pink:         #E8A0B4;
+    --pink-deep:    #D4607A;
+    --pink-light:   #F7D6E0;
+    --pink-soft:    #FDF0F4;
+    --rose:         #C94070;
+    --white:        #FFFFFF;
+    --white-warm:   #FFF8FA;
+    --grey:         #8A7A80;
+    --grey-light:   #F5EEF1;
+    --black:        #2A1F23;
+    --font-display: 'Playfair Display', serif;
+    --font-body:    'Nunito', sans-serif;
+    --transition:   all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --shadow-pink:  0 8px 30px rgba(212, 96, 122, 0.15);
+    --shadow-card:  0 4px 20px rgba(201, 64, 112, 0.08);
+    --radius:       16px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--white-warm);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    background-image:
+        radial-gradient(ellipse at 10% 0%, rgba(232,160,180,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 100%, rgba(212,96,122,0.08) 0%, transparent 50%);
+}
+
+/* ============ NAVIGATION ============ */
+nav {
+    background: rgba(255,255,255,0.92) !important;
+    backdrop-filter: blur(20px);
+    padding: 0 60px !important;
+    height: 70px;
+    display: flex !important;
+    align-items: center;
+    gap: 0 !important;
+    border-bottom: 2px solid var(--pink-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(212,96,122,0.1);
+}
+
+nav::before {
+    content: '🌸 FASHIONLINE';
+    font-family: var(--font-display);
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--rose);
+    letter-spacing: 2px;
+    margin-right: auto;
+}
+
+nav a {
+    color: var(--grey) !important;
+    text-decoration: none !important;
+    font-size: 0.75em !important;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    transition: var(--transition);
+    position: relative;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    color: var(--rose) !important;
+    background: var(--pink-light);
+}
+
+nav a[href="ajouter_produit.php"], nav a[style*="yellow"] {
+    color: var(--white) !important;
+    background: linear-gradient(135deg, var(--pink-deep), var(--rose));
+    border-radius: 20px;
+    padding: 8px 20px;
+    box-shadow: var(--shadow-pink);
+}
+
+nav a[href="ajouter_produit.php"]:hover, nav a[style*="yellow"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212,96,122,0.3);
+}
+
+nav span {
+    color: var(--pink-deep) !important;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95em !important;
+    margin: 0 15px;
+}
+
+/* ============ TITRES ============ */
+h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 2.8em;
+    color: var(--black);
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 50px 20px 10px;
+}
+
+h1::after {
+    content: '✦';
+    display: block;
+    color: var(--pink);
+    font-size: 0.5em;
+    margin: 10px auto 0;
+    letter-spacing: 8px;
+}
+
+h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.2em; }
+
+/* ============ CATALOGUE - CARDS ============ */
+.container { padding: 40px 60px !important; gap: 28px !important; }
+
+.card {
+    background: var(--white) !important;
+    border: 1.5px solid var(--pink-light) !important;
+    border-radius: var(--radius) !important;
+    width: 270px !important;
+    padding: 0 !important;
+    text-align: center;
+    box-shadow: var(--shadow-card) !important;
+    transition: var(--transition);
+    overflow: hidden;
+    position: relative;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--pink) !important;
+    box-shadow: var(--shadow-pink) !important;
+}
+
+.card img, .prod-img {
+    width: 100%; height: 220px;
+    object-fit: cover; display: block;
+    transition: var(--transition);
+}
+
+.card:hover img, .card:hover .prod-img {
+    transform: scale(1.04);
+}
+
+.card small {
+    display: block;
+    padding: 14px 20px 4px !important;
+    color: var(--pink-deep) !important;
+    font-size: 0.62em !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.card h2 {
+    padding: 6px 20px 4px !important;
+    font-size: 1.05em !important;
+    color: var(--black) !important;
+    font-weight: 600;
+}
+
+.card p[style*="e91e63"], .card p[style*="bold"] {
+    color: var(--rose) !important;
+    font-size: 1.1em !important;
+    font-family: var(--font-display);
+    font-weight: 600;
+    padding: 4px 20px !important;
+}
+
+.card p[style*="green"] {
+    color: #B5838D !important;
+    font-size: 0.72em !important;
+    padding: 2px 20px !important;
+}
+
+.card p[style*="red"] {
+    color: #ccc !important;
+    font-size: 0.72em !important;
+    padding: 2px 20px !important;
+}
+
+/* ============ BOUTONS ============ */
+button, input[type="submit"] {
+    background: linear-gradient(135deg, var(--pink-deep), var(--rose));
+    color: var(--white);
+    border: none;
+    padding: 11px 28px;
+    font-family: var(--font-body);
+    font-size: 0.75em; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; transition: var(--transition);
+    border-radius: 25px;
+    margin: 12px 20px 20px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(212,96,122,0.3);
+}
+
+button:hover, input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212,96,122,0.4);
+}
+
+button:disabled {
+    background: #eee !important;
+    color: #bbb !important;
+    box-shadow: none !important;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.card a[style*="red"] {
+    display: block; color: #ccc !important;
+    font-size: 0.65em !important; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 12px 20px !important;
+    text-decoration: none !important; border-top: 1px solid var(--pink-light);
+    transition: var(--transition);
+}
+.card a[style*="red"]:hover { color: var(--rose) !important; background: var(--pink-soft); }
+
+/* ============ FORMULAIRES ============ */
+div[style*="max-width"] {
+    background: var(--white) !important;
+    border: 1.5px solid var(--pink-light) !important;
+    border-radius: var(--radius);
+    padding: 40px !important;
+    margin: 40px auto !important;
+    box-shadow: var(--shadow-pink);
+}
+
+label {
+    display: block; font-size: 0.72em; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--pink-deep);
+    font-weight: 600; margin-bottom: 6px; margin-top: 16px;
+}
+
+input[type="text"], input[type="email"], input[type="password"],
+input[type="number"], input[type="file"], select, textarea {
+    width: 100%;
+    background: var(--pink-soft);
+    border: 1.5px solid var(--pink-light);
+    border-radius: 10px; color: var(--black);
+    font-family: var(--font-body); font-size: 0.88em;
+    font-weight: 400; padding: 12px 16px;
+    transition: var(--transition); outline: none; margin-bottom: 4px;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--pink-deep);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(212,96,122,0.1);
+}
+
+select option { background: var(--white); color: var(--black); }
+
+/* ============ MESSAGES ============ */
+p[style*="color:green"], p[style*="color: green"] {
+    color: #7DB87D !important;
+    background: rgba(125,184,125,0.08);
+    border: 1.5px solid rgba(125,184,125,0.3);
+    border-radius: 10px; padding: 12px 16px; font-size: 0.85em; margin: 10px 0;
+}
+
+p[style*="color:red"], p[style*="color: red"] {
+    color: var(--rose) !important;
+    background: rgba(201,64,112,0.06);
+    border: 1.5px solid rgba(201,64,112,0.2);
+    border-radius: 10px; padding: 12px 16px; font-size: 0.85em; margin: 10px 0;
+}
+
+/* ============ LIENS ============ */
+a { color: var(--pink-deep); text-decoration: none; transition: var(--transition); }
+a:hover { color: var(--rose); }
+
+hr { border: none; border-top: 1.5px solid var(--pink-light); margin: 10px 0 0; }
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--pink-soft); }
+::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--pink-deep); }
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.10s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.20s; }
+.card:nth-child(5) { animation-delay: 0.25s; }
+.card:nth-child(6) { animation-delay: 0.30s; }
+.card:nth-child(7) { animation-delay: 0.35s; }
+.card:nth-child(8) { animation-delay: 0.40s; }
+
+/* ============ ADMIN FORM ============ */
+.admin-form {
+    max-width: 550px; margin: 40px auto;
+    background: var(--white);
+    border: 1.5px solid var(--pink-light);
+    border-radius: var(--radius); padding: 40px;
+    box-shadow: var(--shadow-pink);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+    nav { padding: 15px 20px !important; height: auto; flex-wrap: wrap; gap: 8px !important; }
+    nav::before { width: 100%; margin-bottom: 8px; }
+    .container { padding: 20px !important; }
+    .card { width: 100% !important; max-width: 340px; }
+    h1 { font-size: 2em; }
+}
